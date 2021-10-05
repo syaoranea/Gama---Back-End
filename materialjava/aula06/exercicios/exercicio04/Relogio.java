@@ -1,7 +1,9 @@
 package exercicios.exercicio04;
 
 public class Relogio {
-    private int horas, minutos, segundos;
+    private int horas, minutos, segundos, milesimo, minisegundos, mm, m;
+    boolean ligar = true;
+    
 
     public Relogio( int horas, int minutos, int segundos){
         if( horas < 24 && horas >= 0){
@@ -16,7 +18,7 @@ public class Relogio {
 
     }
 
-    void horaAtual(){
+    public void horaAtual(){
         System.out.println(horas + " : " + minutos + " : " + segundos);
     }
 
@@ -47,6 +49,39 @@ public class Relogio {
     public void setSegundos(int segundos){
         if( segundos <= 60 && segundos >= 0){
             this.segundos = segundos;
+        }
+    }
+
+    
+
+    public void rodarRelogio(){
+        while (ligar) {
+            minisegundos += 1;
+            
+            if (minisegundos == 180) {
+                minisegundos = 0;
+                milesimo +=1;
+            } 
+            if (milesimo == 59) {
+                milesimo = 0;
+                segundos +=1;
+            } 
+            if (segundos == 59) {
+                minutos +=1;
+                segundos = 0;
+            }
+            if (minutos == 59) {
+                minutos =0;
+                horas += 1;
+            }
+            if (horas == 23) {
+                horas = 0;
+                
+            }
+
+            horaAtual();
+            
+
         }
     }
 }

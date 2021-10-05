@@ -5,6 +5,7 @@ public class AppRelogio {
         Relogio r = new Relogio(15, 40, 30);
         r.setHoras(11);
         r.horaAtual();
+        r.rodarRelogio();
 
     }
 }
